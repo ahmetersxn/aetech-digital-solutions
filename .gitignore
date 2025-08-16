@@ -1,0 +1,66 @@
+# IntelliJ IDEA ve Diğer JetBrains IDE'leri için
+.idea/
+*.iml
+*.iws
+*.ipr
+.project
+.vscode/
+out/
+gen/
+
+# Eclipse için
+.settings/
+.classpath
+.project
+target/
+.apt_generated
+.factorypath
+.metadata
+.mvn/
+
+# Maven için
+/target/
+/bin/
+
+# Gradle için
+.gradle/
+build/
+bin/
+
+# Java Çalışma Zamanı (Runtime) ve Derlenmiş Dosyalar
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.log
+*.lock
+*.jks
+*.key
+*.truststore
+*.keystore
+
+# Ortam Dosyaları ve Hassas Veriler
+# Şifreler, API anahtarları gibi hassas veriler içeren dosyaları yüklemeyin.
+# Bu dosyalar production ortamında farklı değerler alabilir.
+.env
+*.properties
+*.yml
+*.json
+*.pem
+
+# IDE Bağımlı Dosyalar
+# Farklı editörler veya IDE'ler için ortak olarak göz ardı edilecek dosyalar
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Test ve Rapor Dosyaları
+/surefire-reports/
+/jacoco-report/
+/test-results/
+
+# Log ve geçici dosyalar
+logs/
+temp/
