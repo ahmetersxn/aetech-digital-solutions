@@ -34,6 +34,23 @@
             }
         }
     </script>
+    <style>
+        /* Modal ve Form Adımları için Stiller */
+        .modal-hidden {
+            display: none;
+            opacity: 0;
+        }
+        .modal-visible {
+            display: flex;
+            opacity: 1;
+        }
+        .form-step {
+            display: none;
+        }
+        .form-step-active {
+            display: block;
+        }
+    </style>
 </head>
 <body class="font-poppins bg-brand-dark text-brand-gray" data-lang="tr">
 
@@ -49,122 +66,159 @@
         </a>
         <nav class="hidden md:flex items-center space-x-8">
             <a href="#cozumler" class="hover:text-brand-accent transition-colors">Çözümlerimiz</a>
+            <a href="#hakkimizda" class="hover:text-brand-accent transition-colors">Hakkımızda</a>
             <a href="#paketler" class="hover:text-brand-accent transition-colors">Paketler</a>
-            <a href="#iletisim" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105">Teklif Alın</a>
+            <a href="#yorumlar" class="hover:text-brand-accent transition-colors">Yorumlar</a>
+            <a href="#sss" class="hover:text-brand-accent transition-colors">SSS</a>
+            <button id="open-quote-modal-btn" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105">Teklif Alın</button>
         </nav>
         <button id="mobile-menu-button" class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
     </div>
     <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95">
         <a href="#cozumler" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors">Çözümlerimiz</a>
+        <a href="#hakkimizda" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors">Hakkımızda</a>
         <a href="#paketler" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors">Paketler</a>
-        <a href="#iletisim" class="block text-center py-4 px-4 bg-brand-accent text-brand-dark font-semibold">Teklif Alın</a>
+        <a href="#yorumlar" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors">Yorumlar</a>
+        <a href="#sss" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors">SSS</a>
+        <button id="open-quote-modal-btn-mobile" class="w-full text-center py-4 px-4 bg-brand-accent text-brand-dark font-semibold">Teklif Alın</button>
     </div>
 </header>
 
 <main>
-    <!-- ===== HERO SECTION ===== -->
-    <section id="hero" class="pt-32 pb-20">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">Türkiye'nin En Kapsamlı <span class="text-brand-accent">Dijital Çözüm</span> Platformu</h1>
-            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Yapay zeka destekli stratejiler ve modern teknolojilerle işinizi geleceğe taşıyın. Kariyerinizi ve şirketinizi bir üst seviyeye çıkarmak için buradayız.</p>
-            <a href="#cozumler" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 px-8 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg shadow-lime-500/20">Çözümleri İncele</a>
-        </div>
-    </section>
-
-    <!-- ===== 6 KAPSAMLI ÇÖZÜM ===== -->
-    <section id="cozumler" class="py-20 bg-black/20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">6 Kapsamlı Çözüm Modülü</h2>
-                <p class="text-lg mt-2">İhtiyaçlarınıza yönelik tasarlanmış, sonuç odaklı hizmetlerimiz.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Modüller buraya gelecek (orijinaldeki gibi) -->
-                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-rocket text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Startup & Girişim Danışmanlığı</h3><p>Fikrinizi 30 günde MVP'ye dönüştürün. Pazara hızlı çıkış rehberi ve yatırımcı sunumları.</p></div>
-                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-server text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Ölçeklenebilir Altyapı</h3><p>SaaS ve bulut tabanlı sistemlerle işinizi büyütürken teknolojiye takılmayın.</p></div>
-                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-paint-brush text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">UI/UX & Marka Kimliği</h3><p>Kullanıcılarınızı etkileyecek modern arayüzler ve akılda kalıcı marka kimlikleri tasarlıyoruz.</p></div>
-                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-chart-line text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">AI Destekli Dijital Pazarlama</h3><p>Veri odaklı SEO, SEM ve sosyal medya stratejileri ile yatırım getirinizi maksimize edin.</p></div>
-                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-shopping-cart text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">E-Ticaret Çözümleri</h3><p>Anahtar teslim e-ticaret siteleri, pazar yeri entegrasyonları ve dönüşüm optimizasyonu.</p></div>
-                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-cogs text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Süreç Otomasyonu</h3><p>Tekrarlayan işlerinizi otomasyona bağlayarak verimliliği artırın ve maliyetleri düşürün.</p></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== PROJE PAKETLERİ ===== -->
-    <section id="paketler" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">Proje Paketleri</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Standart Paket -->
-                <div class="bg-brand-medium/60 border-2 border-brand-khaki/40 rounded-lg p-8 w-full flex flex-col"><h3 class="text-2xl font-bold text-white text-center">Standart Proje</h3><p class="text-center text-brand-gray mb-6">Net hedefleri olan projeler için.</p><div class="text-4xl font-extrabold text-white text-center mb-6">Tek Seferlik <span class="text-lg font-medium text-brand-gray">/ Proje Bazlı</span></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Belirlenen 1 Çözüm Modülü</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Proje Yönetim Paneli Erişimi</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Haftalık Raporlama</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> E-posta Desteği</li></ul><a href="#iletisim" class="w-full text-center bg-brand-khaki hover:bg-brand-khaki/80 text-white font-bold py-3 rounded-full transition-all">Teklif Al</a></div>
-                <!-- Kurumsal Paket -->
-                <div class="bg-brand-medium/60 border-2 border-brand-accent rounded-lg p-8 w-full flex flex-col relative"><div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-dark font-bold text-sm px-4 py-1 rounded-full">POPÜLER</div><h3 class="text-2xl font-bold text-white text-center">Kurumsal Partnerlik</h3><p class="text-center text-brand-gray mb-6">Sürekli ve kapsamlı ihtiyaçlar için.</p><div class="text-4xl font-extrabold text-white text-center mb-6">Aylık <span class="text-lg font-medium text-brand-gray">/ Sürekli Destek</span></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Tüm Çözüm Modülleri</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Özel Proje Yöneticisi</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Öncelikli Destek (Telefon & Video)</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Aylık Strateji Toplantıları</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Kurumsal Raporlama</li></ul><a href="#iletisim" class="w-full text-center bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 rounded-full transition-all">İletişime Geç</a></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== GÜNCELLENMİŞ İLETİŞİM FORMU BÖLÜMÜ ===== -->
-    <section id="iletisim" class="py-20 bg-black/20">
-        <div class="container mx-auto px-6">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">Bizimle İletişime Geçin</h2>
-                <p class="text-lg mb-8">Projeniz, fikirleriniz veya sorularınız için aşağıdaki formu doldurarak bize kolayca ulaşabilirsiniz.</p>
-            </div>
-
-            <div class="max-w-2xl mx-auto mt-10 bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 shadow-2xl">
-                <!-- Netlify Formu -->
-                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <p class="hidden"><label>Bu alanı doldurmayın: <input name="bot-field" /></label></p>
-
-                    <div class="mb-6">
-                        <label for="name" class="block mb-2 text-sm font-medium text-brand-gray">Adınız Soyadınız</label>
-                        <input type="text" id="name" name="name" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3 transition-all duration-300" placeholder="İsminizi girin" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="email" class="block mb-2 text-sm font-medium text-brand-gray">E-posta Adresiniz</label>
-                        <input type="email" id="email" name="email" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3 transition-all duration-300" placeholder="ornek@mail.com" required>
-                    </div>
-                    <div class="mb-6">
-                        <label for="message" class="block mb-2 text-sm font-medium text-brand-gray">Mesajınız</label>
-                        <textarea id="message" name="message" rows="5" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3 transition-all duration-300" placeholder="Projenizden veya fikrinizden bahsedin..." required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 px-10 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg shadow-lime-500/20 text-lg">
-                            Mesajı Gönder
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+    <!-- Diğer section'lar burada... (değişiklik yok) -->
+    <section id="hero" class="pt-32 pb-20"><div class="container mx-auto px-6 text-center"><h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">Türkiye'nin En Kapsamlı <span class="text-brand-accent">Dijital Çözüm</span> Platformu</h1><p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Yapay zeka destekli stratejiler ve modern teknolojilerle işinizi geleceğe taşıyın. Kariyerinizi ve şirketinizi bir üst seviyeye çıkarmak için buradayız.</p><a href="#cozumler" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 px-8 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg shadow-lime-500/20">Çözümleri İncele</a></div></section>
+    <section id="cozumler" class="py-20 bg-black/20"><div class="container mx-auto px-6"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-white">6 Kapsamlı Çözüm Modülü</h2><p class="text-lg mt-2">İhtiyaçlarınıza yönelik tasarlanmış, sonuç odaklı hizmetlerimiz.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-rocket text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Startup & Girişim Danışmanlığı</h3><p>Fikrinizi 30 günde MVP'ye dönüştürün.</p></div><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-server text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Ölçeklenebilir Altyapı</h3><p>SaaS ve bulut tabanlı sistemlerle büyüyün.</p></div><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-paint-brush text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">UI/UX & Marka Kimliği</h3><p>Kullanıcılarınızı etkileyecek arayüzler tasarlıyoruz.</p></div><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-chart-line text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">AI Destekli Pazarlama</h3><p>Veri odaklı stratejilerle yatırım getirinizi maksimize edin.</p></div><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-shopping-cart text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">E-Ticaret Çözümleri</h3><p>Anahtar teslim e-ticaret siteleri ve optimizasyon.</p></div><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-cogs text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Süreç Otomasyonu</h3><p>Tekrarlayan işleri otomasyona bağlayarak verimliliği artırın.</p></div></div></div></section>
+    <section id="hakkimizda" class="py-20"><div class="container mx-auto px-6"><div class="flex flex-col lg:flex-row items-center gap-12"><div class="lg:w-1/2"><img src="https://placehold.co/600x400/2a2f2b/a3e635?text=Aetech+Ekibi" alt="Aetech Ekibi" class="rounded-lg shadow-2xl w-full"></div><div class="lg:w-1/2"><h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Dijital Dönüşümde Güvenilir Partneriniz</h2><p class="text-lg mb-6">Aetech olarak, teknolojinin gücünü kullanarak işletmelerin potansiyelini en üst düzeye çıkarmayı hedefliyoruz. İnovasyon tutkumuz ve müşteri odaklı yaklaşımımızla, her projeye özel çözümler üretiyoruz.</p><div class="space-y-4"><div><h4 class="text-xl font-semibold text-white flex items-center"><i class="fas fa-bullseye text-brand-accent mr-3"></i> Misyonumuz</h4><p class="pl-8">İşletmelerin dijital dünyada rekabet avantajı elde etmelerini sağlamak.</p></div><div><h4 class="text-xl font-semibold text-white flex items-center"><i class="fas fa-eye text-brand-accent mr-3"></i> Vizyonumuz</h4><p class="pl-8">Türkiye'de dijital dönüşüm denince akla gelen ilk teknoloji partneri olmak.</p></div></div></div></div></div></section>
+    <section id="paketler" class="py-20 bg-black/20"><div class="container mx-auto px-6"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-white">Proje Paketleri</h2></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto"><div class="bg-brand-medium/60 border-2 border-brand-khaki/40 rounded-lg p-8 w-full flex flex-col"><h3 class="text-2xl font-bold text-white text-center">Standart Proje</h3><p class="text-center text-brand-gray mb-6">Net hedefleri olan projeler için.</p><div class="text-4xl font-extrabold text-white text-center mb-6">Tek Seferlik <span class="text-lg font-medium text-brand-gray">/ Proje Bazlı</span></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> 1 Çözüm Modülü</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Proje Yönetim Paneli</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Haftalık Raporlama</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> E-posta Desteği</li></ul><a href="#iletisim" class="w-full text-center bg-brand-khaki hover:bg-brand-khaki/80 text-white font-bold py-3 rounded-full transition-all">İletişime Geç</a></div><div class="bg-brand-medium/60 border-2 border-brand-accent rounded-lg p-8 w-full flex flex-col relative"><div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-dark font-bold text-sm px-4 py-1 rounded-full">POPÜLER</div><h3 class="text-2xl font-bold text-white text-center">Kurumsal Partnerlik</h3><p class="text-center text-brand-gray mb-6">Sürekli ihtiyaçlar için.</p><div class="text-4xl font-extrabold text-white text-center mb-6">Aylık <span class="text-lg font-medium text-brand-gray">/ Sürekli Destek</span></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Tüm Çözüm Modülleri</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Özel Proje Yöneticisi</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Öncelikli Destek</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Aylık Strateji Toplantıları</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Kurumsal Raporlama</li></ul><a href="#iletisim" class="w-full text-center bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 rounded-full transition-all">İletişime Geç</a></div></div></div></section>
+    <section id="yorumlar" class="py-20"><div class="container mx-auto px-6"><div class="text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-white">Müşterilerimiz Ne Diyor?</h2><p class="text-lg mt-2">Başarıya ulaştırdığımız markaların deneyimleri.</p></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 flex flex-col items-center text-center"><i class="fas fa-quote-left text-brand-accent text-2xl mb-4"></i><p class="text-brand-gray mb-6 flex-grow">"Aetech ekibi, projemizi başından sonuna kadar inanılmaz bir profesyonellikle yönetti."</p><img src="https://placehold.co/80x80/a3e635/1a201c?text=AY" alt="Müşteri Ayşe Yılmaz" class="w-20 h-20 rounded-full mb-4 border-2 border-brand-accent"><h4 class="text-white font-bold text-lg">Ayşe Yılmaz</h4><p class="text-sm text-brand-gray/80">TechStart CEO</p></div><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 flex flex-col items-center text-center"><i class="fas fa-quote-left text-brand-accent text-2xl mb-4"></i><p class="text-brand-gray mb-6 flex-grow">"Dijital pazarlama stratejileri sayesinde satışlarımızda %200 artış yakaladık."</p><img src="https://placehold.co/80x80/a3e635/1a201c?text=MK" alt="Müşteri Mehmet Kaya" class="w-20 h-20 rounded-full mb-4 border-2 border-brand-accent"><h4 class="text-white font-bold text-lg">Mehmet Kaya</h4><p class="text-sm text-brand-gray/80">E-Ticaret Direktörü</p></div><div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 flex flex-col items-center text-center"><i class="fas fa-quote-left text-brand-accent text-2xl mb-4"></i><p class="text-brand-gray mb-6 flex-grow">"UI/UX tasarımı konusunda harikalar yarattılar. Kullanıcı dostu ve estetik bir platforma kavuştuk."</p><img src="https://placehold.co/80x80/a3e635/1a201c?text=FZ" alt="Müşteri Fatma Zengin" class="w-20 h-20 rounded-full mb-4 border-2 border-brand-accent"><h4 class="text-white font-bold text-lg">Fatma Zengin</h4><p class="text-sm text-brand-gray/80">Ürün Yöneticisi</p></div></div></div></section>
+    <section id="sss" class="py-20 bg-black/20"><div class="container mx-auto px-6"><div class="max-w-3xl mx-auto text-center mb-12"><h2 class="text-3xl md:text-4xl font-bold text-white">Sıkça Sorulan Sorular</h2><p class="text-lg mt-2">Aklınıza takılan soruların yanıtlarını burada bulabilirsiniz.</p></div><div class="max-w-3xl mx-auto"><div class="faq-item border-b border-brand-khaki/40"><button class="faq-question w-full text-left flex justify-between items-center py-5"><span class="text-lg font-semibold text-white">Bir proje süreci ortalama ne kadar sürer?</span><i class="fas fa-chevron-down text-brand-accent transition-transform duration-300"></i></button><div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"><p class="pt-2 pb-5 text-brand-gray">Proje süresi, projenin kapsamına bağlı olarak değişir. Standart bir web sitesi 4-6 hafta sürerken, daha kapsamlı projeler daha uzun sürebilir.</p></div></div><div class="faq-item border-b border-brand-khaki/40"><button class="faq-question w-full text-left flex justify-between items-center py-5"><span class="text-lg font-semibold text-white">Fiyatlandırma politikanız nedir?</span><i class="fas fa-chevron-down text-brand-accent transition-transform duration-300"></i></button><div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"><p class="pt-2 pb-5 text-brand-gray">Fiyatlandırmamız, projenizin gereksinimlerine göre belirlenir. Size en uygun teklifi sunabilmemiz için lütfen bizimle iletişime geçin.</p></div></div><div class="faq-item border-b border-brand-khaki/40"><button class="faq-question w-full text-left flex justify-between items-center py-5"><span class="text-lg font-semibold text-white">Proje tamamlandıktan sonra destek sağlıyor musunuz?</span><i class="fas fa-chevron-down text-brand-accent transition-transform duration-300"></i></button><div class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"><p class="pt-2 pb-5 text-brand-gray">Evet, proje tesliminden sonra 1 ay ücretsiz teknik destek sağlıyoruz. Ayrıca sürekli bakım ve güncelleme hizmetlerimiz de mevcuttur.</p></div></div></div></div></section>
+    <section id="iletisim" class="py-20"><div class="container mx-auto px-6"><div class="max-w-2xl mx-auto text-center"><h2 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">Bizimle İletişime Geçin</h2><p class="text-lg mb-8">Genel sorularınız için bu formu kullanabilirsiniz.</p></div><div class="max-w-2xl mx-auto mt-10 bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 shadow-2xl"><form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"><input type="hidden" name="form-name" value="contact" /><p class="hidden"><label>Bu alanı doldurmayın: <input name="bot-field" /></label></p><div class="mb-6"><label for="name" class="block mb-2 text-sm font-medium text-brand-gray">Adınız Soyadınız</label><input type="text" id="name" name="name" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3" required></div><div class="mb-6"><label for="email" class="block mb-2 text-sm font-medium text-brand-gray">E-posta Adresiniz</label><input type="email" id="email" name="email" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3" required></div><div class="mb-6"><label for="message" class="block mb-2 text-sm font-medium text-brand-gray">Mesajınız</label><textarea id="message" name="message" rows="5" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3" required></textarea></div><div class="text-center"><button type="submit" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 px-10 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg shadow-lime-500/20 text-lg">Mesajı Gönder</button></div></form></div></div></section>
 </main>
 
 <!-- ===== FOOTER ===== -->
-<footer class="bg-brand-dark border-t border-brand-khaki/40 py-8">
-    <div class="container mx-auto px-6 text-center text-brand-gray">
-        <div class="flex justify-center space-x-6 mb-4">
-            <a href="https://www.linkedin.com/in/ahmet-ersin/" target="_blank" class="hover:text-brand-accent transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/ahmetersxn" target="_blank" class="hover:text-brand-accent transition-colors text-xl"><i class="fab fa-github"></i></a>
-        </div>
-        <p>&copy; 2025 Aetech Bilişim. Tüm Hakları Saklıdır.</p>
+<footer class="bg-brand-dark border-t border-brand-khaki/40 py-8"><div class="container mx-auto px-6 text-center text-brand-gray"><div class="flex justify-center space-x-6 mb-4"><a href="https://www.linkedin.com/in/ahmet-ersin/" target="_blank" class="hover:text-brand-accent transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a><a href="https://github.com/ahmetersxn" target="_blank" class="hover:text-brand-accent transition-colors text-xl"><i class="fab fa-github"></i></a></div><p>&copy; 2025 Aetech Bilişim. Tüm Hakları Saklıdır.</p></div></footer>
+
+<!-- ===== YENİ: GELİŞMİŞ TEKLİF AL MODALI ===== -->
+<div id="quote-modal" class="modal-hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 items-center justify-center p-4 transition-opacity duration-300">
+    <div class="bg-brand-medium w-full max-w-3xl rounded-lg border border-brand-khaki/40 shadow-2xl p-8 relative max-h-[90vh] overflow-y-auto">
+        <button id="close-quote-modal-btn" class="absolute top-4 right-4 text-brand-gray hover:text-white text-2xl z-10">&times;</button>
+        <form name="quote" id="quote-form" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="quote" /><p class="hidden"><label>Bu alanı doldurmayın: <input name="bot-field" /></label></p>
+
+            <!-- Adım 1: İletişim Bilgileri -->
+            <div id="step-1" class="form-step form-step-active">
+                <h3 class="text-2xl font-bold text-white text-center mb-2">Teklif Talebi - Adım 1/3</h3>
+                <p class="text-center text-brand-gray mb-6">Sizi tanımamız için temel iletişim bilgilerinizi girin.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div><label for="quote-name" class="block mb-2 text-sm font-medium">Adınız Soyadınız</label><input type="text" id="quote-name" name="name" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg w-full p-2.5" required></div>
+                    <div><label for="quote-company" class="block mb-2 text-sm font-medium">Şirket Adı</label><input type="text" id="quote-company" name="company" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg w-full p-2.5"></div>
+                    <div><label for="quote-email" class="block mb-2 text-sm font-medium">E-posta Adresiniz</label><input type="email" id="quote-email" name="email" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg w-full p-2.5" required></div>
+                    <div><label for="quote-phone" class="block mb-2 text-sm font-medium">Telefon Numaranız</label><input type="tel" id="quote-phone" name="phone" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg w-full p-2.5"></div>
+                </div>
+                <div class="text-right mt-8">
+                    <button type="button" data-next="2" class="next-step-btn bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-2 px-6 rounded-full transition-transform duration-300 hover:scale-105">İleri <i class="fas fa-arrow-right ml-2"></i></button>
+                </div>
+            </div>
+
+            <!-- Adım 2: Proje Detayları -->
+            <div id="step-2" class="form-step">
+                <h3 class="text-2xl font-bold text-white text-center mb-2">Teklif Talebi - Adım 2/3</h3>
+                <p class="text-center text-brand-gray mb-6">Projenizin amacını ve hedeflerini bize anlatın.</p>
+                <div class="space-y-4">
+                    <div><label for="quote-project-name" class="block mb-2 text-sm font-medium">Proje Adı / Kısa Tanımı</label><input type="text" id="quote-project-name" name="project-name" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg w-full p-2.5" placeholder="Örn: E-ticaret Platformu Yenileme"></div>
+                    <div><label for="quote-problem" class="block mb-2 text-sm font-medium">Çözülmesini İstediğiniz Problem veya İhtiyaç Nedir?</label><textarea id="quote-problem" name="problem" rows="4" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg w-full p-2.5" placeholder="Mevcut sistemdeki zorlukları veya yeni proje ile neyi başarmak istediğinizi açıklayın."></textarea></div>
+                    <div><label for="quote-goals" class="block mb-2 text-sm font-medium">Projenin Başarı Kriterleri / Hedefleri Nelerdir?</label><textarea id="quote-goals" name="goals" rows="4" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg w-full p-2.5" placeholder="Örn: Satışları %20 artırmak, manuel iş yükünü %50 azaltmak, kullanıcı memnuniyetini yükseltmek."></textarea></div>
+                </div>
+                <div class="flex justify-between mt-8">
+                    <button type="button" data-prev="1" class="prev-step-btn bg-brand-khaki hover:bg-brand-khaki/80 text-white font-bold py-2 px-6 rounded-full transition-transform duration-300 hover:scale-105"><i class="fas fa-arrow-left mr-2"></i> Geri</button>
+                    <button type="button" data-next="3" class="next-step-btn bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-2 px-6 rounded-full transition-transform duration-300 hover:scale-105">İleri <i class="fas fa-arrow-right ml-2"></i></button>
+                </div>
+            </div>
+
+            <!-- Adım 3: Kapsam ve Bütçe -->
+            <div id="step-3" class="form-step">
+                <h3 class="text-2xl font-bold text-white text-center mb-2">Teklif Talebi - Adım 3/3</h3>
+                <p class="text-center text-brand-gray mb-6">Son olarak, hizmet kapsamını ve bütçenizi belirtin.</p>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block mb-2 text-sm font-medium">İlgilendiğiniz Hizmetler (Birden fazla seçilebilir)</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm"><label class="flex items-center p-2 rounded-md bg-brand-dark/50"><input type="checkbox" name="services[]" value="startup" class="w-4 h-4 text-brand-accent bg-gray-700 border-gray-600 rounded focus:ring-brand-accent"><span class="ml-2 text-white">Startup Danışmanlığı</span></label><label class="flex items-center p-2 rounded-md bg-brand-dark/50"><input type="checkbox" name="services[]" value="altyapi" class="w-4 h-4 text-brand-accent bg-gray-700 border-gray-600 rounded focus:ring-brand-accent"><span class="ml-2 text-white">Ölçeklenebilir Altyapı</span></label><label class="flex items-center p-2 rounded-md bg-brand-dark/50"><input type="checkbox" name="services[]" value="ui-ux" class="w-4 h-4 text-brand-accent bg-gray-700 border-gray-600 rounded focus:ring-brand-accent"><span class="ml-2 text-white">UI/UX & Marka Kimliği</span></label><label class="flex items-center p-2 rounded-md bg-brand-dark/50"><input type="checkbox" name="services[]" value="pazarlama" class="w-4 h-4 text-brand-accent bg-gray-700 border-gray-600 rounded focus:ring-brand-accent"><span class="ml-2 text-white">AI Destekli Pazarlama</span></label><label class="flex items-center p-2 rounded-md bg-brand-dark/50"><input type="checkbox" name="services[]" value="e-ticaret" class="w-4 h-4 text-brand-accent bg-gray-700 border-gray-600 rounded focus:ring-brand-accent"><span class="ml-2 text-white">E-Ticaret Çözümleri</span></label><label class="flex items-center p-2 rounded-md bg-brand-dark/50"><input type="checkbox" name="services[]" value="otomasyon" class="w-4 h-4 text-brand-accent bg-gray-700 border-gray-600 rounded focus:ring-brand-accent"><span class="ml-2 text-white">Süreç Otomasyonu</span></label></div>
+                    </div>
+                    <div>
+                        <label for="budget" class="block mb-2 text-sm font-medium">Tahmini Bütçeniz</label>
+                        <select id="budget" name="budget" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg w-full p-2.5"><option>Seçim Yapınız</option><option value="<10k">₺10.000 Altı</option><option value="10k-25k">₺10.000 - ₺25.000</option><option value="25k-50k">₺25.000 - ₺50.000</option><option value="50k-100k">₺50.000 - ₺100.000</option><option value="100k+">₺100.000 Üzeri</option></select>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-8">
+                    <button type="button" data-prev="2" class="prev-step-btn bg-brand-khaki hover:bg-brand-khaki/80 text-white font-bold py-2 px-6 rounded-full transition-transform duration-300 hover:scale-105"><i class="fas fa-arrow-left mr-2"></i> Geri</button>
+                    <button type="submit" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 px-10 rounded-full transition-transform duration-300 hover:scale-105">Teklifi Gönder</button>
+                </div>
+            </div>
+        </form>
     </div>
-</footer>
+</div>
 
 <script>
+    // Mobil menü scripti
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+    document.querySelectorAll('#mobile-menu a, nav a').forEach(link => { link.addEventListener('click', () => { if(!mobileMenu.classList.contains('hidden')) { mobileMenu.classList.add('hidden'); } }); });
 
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+    // SSS Akordiyon scripti
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('i');
+        question.addEventListener('click', () => {
+            faqItems.forEach(otherItem => { if (otherItem !== item) { otherItem.querySelector('.faq-answer').style.maxHeight = 0; otherItem.querySelector('i').classList.remove('rotate-180'); } });
+            const isOpened = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+            if (isOpened) { answer.style.maxHeight = 0; icon.classList.remove('rotate-180'); } else { answer.style.maxHeight = answer.scrollHeight + 'px'; icon.classList.add('rotate-180'); }
+        });
     });
 
-    // Mobil menüdeki linklere tıklandığında menüyü kapat
-    document.querySelectorAll('#mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+    // Gelişmiş Teklif Modalı Scripti
+    const quoteModal = document.getElementById('quote-modal');
+    const openModalBtn = document.getElementById('open-quote-modal-btn');
+    const openModalBtnMobile = document.getElementById('open-quote-modal-btn-mobile');
+    const closeModalBtn = document.getElementById('close-quote-modal-btn');
+    const quoteForm = document.getElementById('quote-form');
+    const steps = quoteForm.querySelectorAll('.form-step');
+    let currentStep = 1;
+
+    const showStep = (stepNumber) => {
+        steps.forEach(step => step.classList.remove('form-step-active'));
+        quoteForm.querySelector(`#step-${stepNumber}`).classList.add('form-step-active');
+        currentStep = stepNumber;
+    };
+
+    const openModal = () => {
+        showStep(1); // Modalı her zaman ilk adımdan başlat
+        quoteModal.classList.remove('modal-hidden');
+        quoteModal.classList.add('modal-visible');
+    };
+    const closeModal = () => {
+        quoteModal.classList.add('modal-hidden');
+        quoteModal.classList.remove('modal-visible');
+    };
+
+    openModalBtn.addEventListener('click', openModal);
+    openModalBtnMobile.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    quoteModal.addEventListener('click', (e) => { if (e.target === quoteModal) closeModal(); });
+
+    quoteForm.querySelectorAll('.next-step-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const nextStep = parseInt(button.dataset.next);
+            showStep(nextStep);
+        });
+    });
+
+    quoteForm.querySelectorAll('.prev-step-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const prevStep = parseInt(button.dataset.prev);
+            showStep(prevStep);
         });
     });
 </script>
