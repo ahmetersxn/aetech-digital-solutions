@@ -1,246 +1,172 @@
 <!DOCTYPE html>
 <html lang="tr" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aetech Bilişim - Dijital Dönüşüm Çözümleri</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aetech Bilişim - Dijital Dönüşüm Çözümleri</title>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'poppins': ['Poppins', 'sans-serif']
-                    },
-                    colors: {
-                        'brand-dark': '#1a201c',
-                        'brand-medium': '#2a2f2b',
-                        'brand-khaki': '#52554e',
-                        'brand-gray': '#a8b2a3',
-                        'brand-accent': '#a3e635',
-                        // Resimden gelen yeni renkler
-                        'accent-green': '#00b77b',
-                        'accent-purple': '#800080',
-                        'accent-orange': '#ff5a00',
-                    }
-                }
-            }
-        }
-    </script>
-</head>
-<body class="font-poppins bg-brand-dark text-brand-gray" data-lang="tr">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- ===== HEADER ===== -->
-    <header id="header" class="bg-brand-dark/80 backdrop-blur-sm fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-lg">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo olarak yazı ve SVG ikon kullanıldı -->
-            <a href="#" class="flex items-center text-2xl font-bold text-white group">
-                <!-- AI temasını vurgulayan SVG ikonu -->
-                <svg class="h-6 w-6 mr-2 text-brand-accent transform transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                <span class="bg-gradient-to-r from-brand-accent to-white bg-clip-text text-transparent font-extrabold text-3xl">Aetech<span class="text-brand-accent/70">.</span></span>
-            </a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#cozumler" class="hover:text-brand-accent transition-colors" data-tr="Çözümlerimiz" data-en="Our Solutions">Çözümlerimiz</a>
-                <a href="#paketler" class="hover:text-brand-accent transition-colors" data-tr="Paketler" data-en="Packages">Paketler</a>
-                <a href="#yorumlar" class="hover:text-brand-accent transition-colors" data-tr="Yorumlar" data-en="Testimonials">Yorumlar</a>
-                <a href="#iletisim" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105" data-tr="Teklif Alın" data-en="Get a Quote">Teklif Alın</a>
-            </nav>
-            <div class="flex items-center space-x-4">
-                <button id="lang-toggle" class="text-white text-sm font-semibold border border-brand-gray rounded-full px-3 py-1 hover:bg-brand-gray hover:text-brand-dark transition-colors">
-                    TR / EN
-                </button>
-                <button id="mobile-menu-button" class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95">
-            <a href="#cozumler" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors" data-tr="Çözümlerimiz" data-en="Our Solutions">Çözümlerimiz</a>
-            <a href="#paketler" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors" data-tr="Paketler" data-en="Packages">Paketler</a>
-            <a href="#yorumlar" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors" data-tr="Yorumlar" data-en="Testimonials">Yorumlar</a>
-            <a href="#iletisim" class="block text-center py-4 px-4 bg-brand-accent text-brand-dark font-semibold" data-tr="Teklif Alın" data-en="Get a Quote">Teklif Alın</a>
-        </div>
-    </header>
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <main>
-        <!-- ===== HERO SECTION ===== -->
-        <section id="hero" class="pt-32 pb-20">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4" data-tr="Türkiye'nin En Kapsamlı Dijital Çözüm Platformu" data-en="Turkey's Most Comprehensive Digital Solutions Platform">Türkiye'nin En Kapsamlı <span class="text-brand-accent">Dijital Çözüm</span> Platformu</h1>
-                <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto" data-tr="Yapay zeka destekli stratejiler ve modern teknolojilerle işinizi geleceğe taşıyın. Kariyerinizi ve şirketinizi bir üst seviyeye çıkarmak için buradayız." data-en="Carry your business into the future with AI-supported strategies and modern technologies. We are here to take your career and your company to the next level.">Yapay zeka destekli stratejiler ve modern teknolojilerle işinizi geleceğe taşıyın. Kariyerinizi ve şirketinizi bir üst seviyeye çıkarmak için buradayız.</p>
-                <a href="#cozumler" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 px-8 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg shadow-lime-500/20" data-tr="Çözümleri İncele" data-en="Explore Solutions">Çözümleri İncele</a>
-            </div>
-        </section>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-        <!-- ===== 6 KAPSAMLI ÇÖZÜM ===== -->
-        <section id="cozumler" class="py-20 bg-black/20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white" data-tr="6 Kapsamlı Çözüm Modülü" data-en="6 Comprehensive Solution Modules">6 Kapsamlı Çözüm Modülü</h2>
-                    <p class="text-lg mt-2" data-tr="İhtiyaçlarınıza yönelik tasarlanmış, sonuç odaklı hizmetlerimiz." data-en="Our result-oriented services designed for your needs.">İhtiyaçlarınıza yönelik tasarlanmış, sonuç odaklı hizmetlerimiz.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Modül 1 -->
-                    <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center">
-                        <i class="fas fa-rocket text-4xl text-brand-accent mb-4"></i>
-                        <h3 class="text-xl font-bold text-white mb-2" data-tr="Startup & Girişim Danışmanlığı" data-en="Startup & Entrepreneurship Consulting">Startup & Girişim Danışmanlığı</h3>
-                        <p data-tr="Fikrinizi 30 günde MVP'ye dönüştürün. Pazara hızlı çıkış rehberi ve yatırımcı sunumları." data-en="Turn your idea into an MVP in 30 days. Rapid go-to-market guide and investor presentations.">Fikrinizi 30 günde MVP'ye dönüştürün. Pazara hızlı çıkış rehberi ve yatırımcı sunumları.</p>
-                    </div>
-                    <!-- Modül 2 -->
-                    <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center">
-                        <i class="fas fa-server text-4xl text-brand-accent mb-4"></i>
-                        <h3 class="text-xl font-bold text-white mb-2" data-tr="Ölçeklenebilir Altyapı" data-en="Scalable Infrastructure">Ölçeklenebilir Altyapı</h3>
-                        <p data-tr="SaaS ve bulut tabanlı sistemlerle işinizi büyütürken teknolojiye takılmayın." data-en="Don't get stuck on technology as you grow your business with SaaS and cloud-based systems.">SaaS ve bulut tabanlı sistemlerle işinizi büyütürken teknolojiye takılmayın.</p>
-                    </div>
-                    <!-- Modül 3 -->
-                    <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center">
-                        <i class="fas fa-paint-brush text-4xl text-brand-accent mb-4"></i>
-                        <h3 class="text-xl font-bold text-white mb-2" data-tr="UI/UX & Marka Kimliği" data-en="UI/UX & Brand Identity">UI/UX & Marka Kimliği</h3>
-                        <p data-tr="Kullanıcılarınızı etkileyecek modern arayüzler ve akılda kalıcı marka kimlikleri tasarlıyoruz." data-en="We design modern interfaces and memorable brand identities that will impress your users.">Kullanıcılarınızı etkileyecek modern arayüzler ve akılda kalıcı marka kimlikleri tasarlıyoruz.</p>
-                    </div>
-                    <!-- Modül 4 -->
-                    <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center">
-                        <i class="fas fa-chart-line text-4xl text-brand-accent mb-4"></i>
-                        <h3 class="text-xl font-bold text-white mb-2" data-tr="AI Destekli Dijital Pazarlama" data-en="AI-Powered Digital Marketing">AI Destekli Dijital Pazarlama</h3>
-                        <p data-tr="Veri odaklı SEO, SEM ve sosyal medya stratejileri ile yatırım getirinizi maksimize edin." data-en="Maximize your ROI with data-driven SEO, SEM, and social media strategies.">Veri odaklı SEO, SEM ve sosyal medya stratejileri ile yatırım getirinizi maksimize edin.</p>
-                    </div>
-                    <!-- Modül 5 -->
-                    <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center">
-                        <i class="fas fa-shopping-cart text-4xl text-brand-accent mb-4"></i>
-                        <h3 class="text-xl font-bold text-white mb-2" data-tr="E-Ticaret Çözümleri" data-en="E-commerce Solutions">E-Ticaret Çözümleri</h3>
-                        <p data-tr="Anahtar teslim e-ticaret siteleri, pazar yeri entegrasyonları ve dönüşüm optimizasyonu." data-en="Turnkey e-commerce sites, marketplace integrations, and conversion optimization.">Anahtar teslim e-ticaret siteleri, pazar yeri entegrasyonları ve dönüşüm optimizasyonu.</p>
-                    </div>
-                    <!-- Modül 6 -->
-                    <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center">
-                        <i class="fas fa-cogs text-4xl text-brand-accent mb-4"></i>
-                        <h3 class="text-xl font-bold text-white mb-2" data-tr="Süreç Otomasyonu" data-en="Process Automation">Süreç Otomasyonu</h3>
-                        <p data-tr="Tekrarlayan işlerinizi otomasyona bağlayarak verimliliği artırın ve maliyetleri düşürün." data-en="Boost efficiency and reduce costs by automating your repetitive tasks.">Tekrarlayan işlerinizi otomasyona bağlayarak verimliliği artırın ve maliyetleri düşürün.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== PROJE PAKETLERİ ===== -->
-        <section id="paketler" class="py-20">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white" data-tr="Proje Paketleri" data-en="Project Packages">Proje Paketleri</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Standart Paket -->
-                    <div class="bg-brand-medium/60 border-2 border-brand-khaki/40 rounded-lg p-8 w-full flex flex-col">
-                        <h3 class="text-2xl font-bold text-white text-center" data-tr="Standart Proje" data-en="Standard Project">Standart Proje</h3>
-                        <p class="text-center text-brand-gray mb-6" data-tr="Net hedefleri olan projeler için." data-en="For projects with clear objectives.">Net hedefleri olan projeler için.</p>
-                        <div class="text-4xl font-extrabold text-white text-center mb-6" data-tr="Tek Seferlik" data-en="One-time"><span data-tr="Tek Seferlik" data-en="One-time">Tek Seferlik</span> <span class="text-lg font-medium text-brand-gray" data-tr="/ Proje Bazlı" data-en="/ Project-based">/ Proje Bazlı</span></div>
-                        <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-center" data-tr-list="Belirlenen 1 Çözüm Modülü" data-en-list="1 Solution Module"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Belirlenen 1 Çözüm Modülü</li>
-                            <li class="flex items-center" data-tr-list="Proje Yönetim Paneli Erişimi" data-en-list="Project Management Panel Access"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Proje Yönetim Paneli Erişimi</li>
-                            <li class="flex items-center" data-tr-list="Haftalık Raporlama" data-en-list="Weekly Reporting"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Haftalık Raporlama</li>
-                            <li class="flex items-center" data-tr-list="E-posta Desteği" data-en-list="Email Support"><i class="fas fa-check-circle text-brand-accent mr-3"></i> E-posta Desteği</li>
-                        </ul>
-                        <a href="#iletisim" class="w-full text-center bg-brand-khaki hover:bg-brand-khaki/80 text-white font-bold py-3 rounded-full transition-all" data-tr="Teklif Al" data-en="Get a Quote">Teklif Al</a>
-                    </div>
-                    <!-- Kurumsal Paket -->
-                    <div class="bg-brand-medium/60 border-2 border-brand-accent rounded-lg p-8 w-full flex flex-col relative">
-                        <div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-dark font-bold text-sm px-4 py-1 rounded-full" data-tr="POPÜLER" data-en="POPULAR">POPÜLER</div>
-                        <h3 class="text-2xl font-bold text-white text-center" data-tr="Kurumsal Partnerlik" data-en="Corporate Partnership">Kurumsal Partnerlik</h3>
-                        <p class="text-center text-brand-gray mb-6" data-tr="Sürekli ve kapsamlı ihtiyaçlar için." data-en="For continuous and comprehensive needs.">Sürekli ve kapsamlı ihtiyaçlar için.</p>
-                        <div class="text-4xl font-extrabold text-white text-center mb-6" data-tr="Aylık" data-en="Monthly"><span data-tr="Aylık" data-en="Monthly">Aylık</span> <span class="text-lg font-medium text-brand-gray" data-tr="/ Sürekli Destek" data-en="/ Continuous Support">/ Sürekli Destek</span></div>
-                        <ul class="space-y-4 mb-8 flex-grow">
-                            <li class="flex items-center" data-tr-list="Tüm Çözüm Modülleri" data-en-list="All Solution Modules"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Tüm Çözüm Modülleri</li>
-                            <li class="flex items-center" data-tr-list="Özel Proje Yöneticisi" data-en-list="Dedicated Project Manager"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Özel Proje Yöneticisi</li>
-                            <li class="flex items-center" data-tr-list="Öncelikli Destek (Telefon & Video)" data-en-list="Priority Support (Phone & Video)"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Öncelikli Destek (Telefon & Video)</li>
-                            <li class="flex items-center" data-tr-list="Aylık Strateji Toplantıları" data-en-list="Monthly Strategy Meetings"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Aylık Strateji Toplantıları</li>
-                            <li class="flex items-center" data-tr-list="Kurumsal Raporlama" data-en-list="Corporate Reporting"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Kurumsal Raporlama</li>
-                        </ul>
-                        <a href="#iletisim" class="w-full text-center bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 rounded-full transition-all" data-tr="İletişime Geç" data-en="Contact Us">İletişime Geç</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== İLETİŞİM SECTION ===== -->
-        <section id="iletisim" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4" data-tr="Projenizi Hayata Geçirmeye Hazır mısınız?" data-en="Are you ready to bring your project to life?">Projenizi Hayata Geçirmeye Hazır mısınız?</h2>
-                <p class="text-lg mb-8 max-w-2xl mx-auto" data-tr="Aklınızdaki fikri veya ihtiyacınızı bizimle paylaşın, size özel çözümlerle en kısa sürede geri dönüş yapalım." data-en="Share your idea or need with us, and we'll get back to you with tailored solutions as soon as possible.">Aklınızdaki fikri veya ihtiyacınızı bizimle paylaşın, size özel çözümlerle en kısa sürede geri dönüş yapalım.</p>
-                <a href="mailto:ahmetersxn@gmail.com" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-4 px-10 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg shadow-lime-500/20 text-lg" data-tr="Bize Ulaşın" data-en="Contact Us">ahmetersxn@gmail.com</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-black/20 border-t border-brand-khaki/40 py-8">
-        <div class="container mx-auto px-6 text-center text-brand-gray">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://www.linkedin.com/in/ahmet-ersin/" target="_blank" class="hover:text-brand-accent transition-colors text-xl" data-tr-title="LinkedIn" data-en-title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/ahmetersxn" target="_blank" class="hover:text-brand-accent transition-colors text-xl" data-tr-title="GitHub" data-en-title="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-            <p data-tr="&copy; 2025 Aetech Bilişim. Tüm Hakları Saklıdır." data-en="&copy; 2025 Aetech Informatics. All Rights Reserved.">&copy; 2025 Aetech Bilişim. Tüm Hakları Saklıdır.</p>
-        </div>
-    </footer>
-
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const langToggle = document.getElementById('lang-toggle');
-        const body = document.body;
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        langToggle.addEventListener('click', () => {
-            const currentLang = body.getAttribute('data-lang');
-            const newLang = currentLang === 'tr' ? 'en' : 'tr';
-            body.setAttribute('data-lang', newLang);
-            updateContent(newLang);
-        });
-
-        function updateContent(lang) {
-            // Menü linklerini güncelle
-            document.querySelectorAll('nav a, #mobile-menu a').forEach(link => {
-                if (link.dataset.tr && link.dataset.en) {
-                    link.textContent = lang === 'tr' ? link.dataset.tr : link.dataset.en;
-                }
-            });
-
-            // Ana sayfa metinlerini güncelle
-            document.querySelectorAll('[data-tr]').forEach(element => {
-                if (element.dataset.tr && element.dataset.en) {
-                    element.innerHTML = lang === 'tr' ? element.dataset.tr : element.dataset.en;
-                }
-            });
-
-            // Paket listesi maddelerini güncelle
-            document.querySelectorAll('ul li').forEach(li => {
-                const icon = li.querySelector('i');
-                if (li.dataset.trList && li.dataset.enList) {
-                    li.innerHTML = '';
-                    if (icon) {
-                        li.appendChild(icon.cloneNode());
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        'brand-dark': '#1a201c',
+                        'brand-medium': '#2a2f2b',
+                        'brand-khaki': '#52554e',
+                        'brand-gray': '#a8b2a3',
+                        'brand-accent': '#a3e635',
                     }
-                    li.appendChild(document.createTextNode(' ' + (lang === 'tr' ? li.dataset.trList : li.dataset.enList)));
                 }
-            });
-
-            // Footer metnini güncelle
-            const footerText = document.querySelector('footer p');
-            if (footerText && footerText.dataset.tr && footerText.dataset.en) {
-                footerText.innerHTML = lang === 'tr' ? footerText.dataset.tr : footerText.dataset.en;
             }
         }
     </script>
+</head>
+<body class="font-poppins bg-brand-dark text-brand-gray" data-lang="tr">
+
+<!-- ===== HEADER ===== -->
+<header id="header" class="bg-brand-dark/80 backdrop-blur-sm fixed top-0 left-0 w-full z-50 transition-all duration-300 shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <!-- Logo -->
+        <a href="#" class="flex items-center text-2xl font-bold text-white group">
+            <svg class="h-6 w-6 mr-2 text-brand-accent transform transition-transform duration-300 group-hover:rotate-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span class="bg-gradient-to-r from-brand-accent to-white bg-clip-text text-transparent font-extrabold text-3xl">Aetech<span class="text-brand-accent/70">.</span></span>
+        </a>
+        <nav class="hidden md:flex items-center space-x-8">
+            <a href="#cozumler" class="hover:text-brand-accent transition-colors">Çözümlerimiz</a>
+            <a href="#paketler" class="hover:text-brand-accent transition-colors">Paketler</a>
+            <a href="#iletisim" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold px-5 py-2 rounded-full transition-all duration-300 hover:scale-105">Teklif Alın</a>
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden text-white text-2xl"><i class="fas fa-bars"></i></button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-dark/95">
+        <a href="#cozumler" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors">Çözümlerimiz</a>
+        <a href="#paketler" class="block text-center py-3 px-4 hover:bg-brand-accent/20 transition-colors">Paketler</a>
+        <a href="#iletisim" class="block text-center py-4 px-4 bg-brand-accent text-brand-dark font-semibold">Teklif Alın</a>
+    </div>
+</header>
+
+<main>
+    <!-- ===== HERO SECTION ===== -->
+    <section id="hero" class="pt-32 pb-20">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">Türkiye'nin En Kapsamlı <span class="text-brand-accent">Dijital Çözüm</span> Platformu</h1>
+            <p class="text-lg md:text-xl mb-8 max-w-3xl mx-auto">Yapay zeka destekli stratejiler ve modern teknolojilerle işinizi geleceğe taşıyın. Kariyerinizi ve şirketinizi bir üst seviyeye çıkarmak için buradayız.</p>
+            <a href="#cozumler" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 px-8 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg shadow-lime-500/20">Çözümleri İncele</a>
+        </div>
+    </section>
+
+    <!-- ===== 6 KAPSAMLI ÇÖZÜM ===== -->
+    <section id="cozumler" class="py-20 bg-black/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">6 Kapsamlı Çözüm Modülü</h2>
+                <p class="text-lg mt-2">İhtiyaçlarınıza yönelik tasarlanmış, sonuç odaklı hizmetlerimiz.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Modüller buraya gelecek (orijinaldeki gibi) -->
+                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-rocket text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Startup & Girişim Danışmanlığı</h3><p>Fikrinizi 30 günde MVP'ye dönüştürün. Pazara hızlı çıkış rehberi ve yatırımcı sunumları.</p></div>
+                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-server text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Ölçeklenebilir Altyapı</h3><p>SaaS ve bulut tabanlı sistemlerle işinizi büyütürken teknolojiye takılmayın.</p></div>
+                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-paint-brush text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">UI/UX & Marka Kimliği</h3><p>Kullanıcılarınızı etkileyecek modern arayüzler ve akılda kalıcı marka kimlikleri tasarlıyoruz.</p></div>
+                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-chart-line text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">AI Destekli Dijital Pazarlama</h3><p>Veri odaklı SEO, SEM ve sosyal medya stratejileri ile yatırım getirinizi maksimize edin.</p></div>
+                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-shopping-cart text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">E-Ticaret Çözümleri</h3><p>Anahtar teslim e-ticaret siteleri, pazar yeri entegrasyonları ve dönüşüm optimizasyonu.</p></div>
+                <div class="bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 text-center"><i class="fas fa-cogs text-4xl text-brand-accent mb-4"></i><h3 class="text-xl font-bold text-white mb-2">Süreç Otomasyonu</h3><p>Tekrarlayan işlerinizi otomasyona bağlayarak verimliliği artırın ve maliyetleri düşürün.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJE PAKETLERİ ===== -->
+    <section id="paketler" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Proje Paketleri</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Standart Paket -->
+                <div class="bg-brand-medium/60 border-2 border-brand-khaki/40 rounded-lg p-8 w-full flex flex-col"><h3 class="text-2xl font-bold text-white text-center">Standart Proje</h3><p class="text-center text-brand-gray mb-6">Net hedefleri olan projeler için.</p><div class="text-4xl font-extrabold text-white text-center mb-6">Tek Seferlik <span class="text-lg font-medium text-brand-gray">/ Proje Bazlı</span></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Belirlenen 1 Çözüm Modülü</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Proje Yönetim Paneli Erişimi</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Haftalık Raporlama</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> E-posta Desteği</li></ul><a href="#iletisim" class="w-full text-center bg-brand-khaki hover:bg-brand-khaki/80 text-white font-bold py-3 rounded-full transition-all">Teklif Al</a></div>
+                <!-- Kurumsal Paket -->
+                <div class="bg-brand-medium/60 border-2 border-brand-accent rounded-lg p-8 w-full flex flex-col relative"><div class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-brand-accent text-brand-dark font-bold text-sm px-4 py-1 rounded-full">POPÜLER</div><h3 class="text-2xl font-bold text-white text-center">Kurumsal Partnerlik</h3><p class="text-center text-brand-gray mb-6">Sürekli ve kapsamlı ihtiyaçlar için.</p><div class="text-4xl font-extrabold text-white text-center mb-6">Aylık <span class="text-lg font-medium text-brand-gray">/ Sürekli Destek</span></div><ul class="space-y-4 mb-8 flex-grow"><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Tüm Çözüm Modülleri</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Özel Proje Yöneticisi</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Öncelikli Destek (Telefon & Video)</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Aylık Strateji Toplantıları</li><li class="flex items-center"><i class="fas fa-check-circle text-brand-accent mr-3"></i> Kurumsal Raporlama</li></ul><a href="#iletisim" class="w-full text-center bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 rounded-full transition-all">İletişime Geç</a></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GÜNCELLENMİŞ İLETİŞİM FORMU BÖLÜMÜ ===== -->
+    <section id="iletisim" class="py-20 bg-black/20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white leading-tight mb-4">Bizimle İletişime Geçin</h2>
+                <p class="text-lg mb-8">Projeniz, fikirleriniz veya sorularınız için aşağıdaki formu doldurarak bize kolayca ulaşabilirsiniz.</p>
+            </div>
+
+            <div class="max-w-2xl mx-auto mt-10 bg-brand-medium/60 p-8 rounded-lg border border-brand-khaki/40 shadow-2xl">
+                <!-- Netlify Formu -->
+                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p class="hidden"><label>Bu alanı doldurmayın: <input name="bot-field" /></label></p>
+
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 text-sm font-medium text-brand-gray">Adınız Soyadınız</label>
+                        <input type="text" id="name" name="name" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3 transition-all duration-300" placeholder="İsminizi girin" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 text-sm font-medium text-brand-gray">E-posta Adresiniz</label>
+                        <input type="email" id="email" name="email" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3 transition-all duration-300" placeholder="ornek@mail.com" required>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 text-sm font-medium text-brand-gray">Mesajınız</label>
+                        <textarea id="message" name="message" rows="5" class="bg-brand-dark border border-brand-khaki/60 text-white text-sm rounded-lg focus:ring-brand-accent focus:border-brand-accent block w-full p-3 transition-all duration-300" placeholder="Projenizden veya fikrinizden bahsedin..." required></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="bg-brand-accent hover:bg-lime-500 text-brand-dark font-bold py-3 px-10 rounded-full transition-transform duration-300 hover:scale-105 shadow-lg shadow-lime-500/20 text-lg">
+                            Mesajı Gönder
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-brand-dark border-t border-brand-khaki/40 py-8">
+    <div class="container mx-auto px-6 text-center text-brand-gray">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="https://www.linkedin.com/in/ahmet-ersin/" target="_blank" class="hover:text-brand-accent transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/ahmetersxn" target="_blank" class="hover:text-brand-accent transition-colors text-xl"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 Aetech Bilişim. Tüm Hakları Saklıdır.</p>
+    </div>
+</footer>
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Mobil menüdeki linklere tıklandığında menüyü kapat
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+</script>
 </body>
 </html>
